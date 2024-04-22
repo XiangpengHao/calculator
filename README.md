@@ -1,42 +1,20 @@
-# A simple number converter 
+# Bit Calculator 
+
+Online: https://xiangpenghao.github.io/calculator/
+
+A cool screen shot to bait you to click the link:
+![](/dev/screenshot.png)
+
+
+Allows you to investigate a number in its binary, hexadecimal, and decimal forms. 
+Similar to the Windows calculator in programmer mode, but on Web.
+
+Could be helpful to debug memory addresses and bit-packed values, common in system programming. 
+
+Note that every number is **64-bit unsigned integer**, because we system programmers don't use [other types](https://www.reddit.com/r/ProgrammerHumor/comments/13gt6co/standagainstfloats/#lightbox).
 
 Mostly written by ChatGPT.
 
-# create-svelte
-
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+#### Contribution
+I don't know much about web / javascript / typescript / svelte / html / css / whatever, I'm open to any contribution.
+I tend to trust your modification, but please at least ask ChatGPT before sending a PR.

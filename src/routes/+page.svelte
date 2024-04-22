@@ -174,7 +174,7 @@
 	</div>
 
 	<div class="input-box">
-		<div>Bit bits:</div>
+		<div>Bits:</div>
 		<div>
 			<div class="bit-container">
 				{#each Array.from({ length: 8 }, (_, i) => 7 - i) as i}
@@ -201,6 +201,7 @@
 			</div>
 		</div>
 	</div>
+	<div class="credit"><a href="https://github.com/XiangpengHao/calculator">Code</a></div>
 </div>
 
 <style>
@@ -280,5 +281,8 @@
 	.bit-index {
 		font-size: small;
 		color: #a0a0a0;
+	}
+	.credit {
+		margin-top: 15em;
 	}
 </style>
