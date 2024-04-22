@@ -41,8 +41,16 @@
 
 	function updateFromInput(value: string, base: number) {
 		let num = BigInt(0);
+		if (base === 2) {
+			num = BigInt(`0b${value}`);
+		} else if (base === 8) {
+			num = BigInt(`0o${value}`);
+		} else if (base === 16) {
+			num = BigInt(`0x${value}`);
+		} else if (base === 10) {
+			num = BigInt(value);
+		}
 		try {
-			num = BigInt(`0x${BigInt(value).toString(16)}`);
 			updateAllFromNumber(num);
 		} catch (e) {
 			clearAll();
@@ -71,7 +79,7 @@
 
 <div style="margin-left: 1em;">
 	<h1>Calculator</h1>
-	<div>
+	<div class="input-box">
 		<label for="decimal">Decimal:</label>
 		<input
 			id="decimal"
@@ -80,7 +88,9 @@
 			on:input={() => convertFromDecimal(decimal)}
 			placeholder="Decimal"
 		/>
+	</div>
 
+	<div class="input-box">
 		<label for="octal">Octal:</label>
 		<input
 			id="octal"
@@ -89,7 +99,9 @@
 			on:input={() => convertFromOctal(octal)}
 			placeholder="Octal"
 		/>
+	</div>
 
+	<div class="input-box">
 		<label for="binary">Binary:</label>
 		<input
 			id="binary"
@@ -98,7 +110,8 @@
 			on:input={() => convertFromBinary(binary)}
 			placeholder="Binary"
 		/>
-
+	</div>
+	<div class="input-box">
 		<label for="hexadecimal">Hexadecimal:</label>
 		<input
 			id="hexadecimal"
@@ -109,27 +122,27 @@
 		/>
 	</div>
 
-	<div>
+	<div class="input-box">
 		<div>Bit Values:</div>
 		<div>
 			<div class="bit-container">
-				{#each Array(8) as _, i}
+				{#each Array.from({ length: 8 }, (_, i) => 7 - i) as i}
 					<div class="bit-group">
-						{#each bits.slice(i * 8, i * 8 + 8) as bit, index}
+						{#each [...bits.slice(i * 8, i * 8 + 8)].reverse() as bit, index}
 							<div>
 								<div>
 									<button
 										type="button"
 										class="bit-box {bit === '1' ? 'on' : ''}"
-										on:click={() => toggleBit(i * 8 + index)}
-										on:keydown={handleKeyDown(i * 8 + index)}
-										aria-label={`Toggle bit ${i * 8 + index}`}
+										on:click={() => toggleBit(i * 8 + 7 - index)}
+										on:keydown={handleKeyDown(i * 8 + 7 - index)}
+										aria-label={`Toggle bit ${i * 8 + 7 - index}`}
 										aria-pressed={bit === '1'}
 									>
 										{bit}
 									</button>
 								</div>
-								<div class="bit-index">{i * 8 + index}</div>
+								<div class="bit-index">{i * 8 + 8 - index}</div>
 							</div>
 						{/each}
 					</div>
@@ -144,7 +157,6 @@
 	label,
 	div,
 	button,
-	h2,
 	h1 {
 		font-family: 'JetBrains Mono', monospace;
 	}
@@ -158,8 +170,8 @@
 
 	button.bit-box {
 		display: inline-block;
-		width: 40px;
-		height: 40px;
+		width: 35px;
+		height: 35px;
 		margin: 2px;
 		padding: 0;
 		border: none;
@@ -176,6 +188,10 @@
 		color: white;
 	}
 
+	.input-box {
+		margin-bottom: 1em;
+	}
+
 	.bit-container {
 		display: flex;
 		flex-wrap: wrap;
@@ -185,7 +201,7 @@
 	.bit-group {
 		display: flex;
 		min-width: 10em;
-		margin-left: 3em;
+		margin-left: 2em;
 		margin-bottom: 1em;
 	}
 	.bit-index {
