@@ -225,7 +225,7 @@
 		margin-bottom: 0;
 		margin-top: 0;
 		padding: 8px;
-		color: rgb(119, 135, 135);
+		color: #a0a0a0;
 	}
 
 	.alternative-format:hover {
