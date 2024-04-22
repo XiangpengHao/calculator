@@ -17,4 +17,4 @@ Mostly written by ChatGPT.
 
 #### Contribution
 I don't know much about web / javascript / typescript / svelte / html / css / whatever, I'm open to any contribution.
-I tend to trust your modification, but please at least ask ChatGPT before sending a PR.
+I tend to [trust your modification](https://gist.github.com/thesamesam/223949d5a074ebc3dce9ee78baad9e27), but please at least ask ChatGPT before sending a PR.
