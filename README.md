@@ -1,9 +1,7 @@
 # Bit Calculator 
 
 Online: https://xiangpenghao.github.io/calculator/
-
-A cool screen shot to bait you to click the link:
-![](/dev/screenshot.png)
+![](/dev/screen2.gif)
 
 
 Allows you to investigate a number in its binary, hexadecimal, and decimal forms. 
